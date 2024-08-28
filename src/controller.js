@@ -53,7 +53,7 @@ class BiblioController {
         try {
             const [result] = await pool.query(
                 `INSERT INTO libros(nombre, autor, categoria, \`año\`, ISBN) VALUES(?,?,?,?,?)`,
-                [libro.nombre, libro.autor, libro.categoria, libro['año-publicacion'], libro.ISBN]
+                [libro.nombre, libro.autor, libro.categoria, libro['año'], libro.ISBN]
             );
             res.json({ "Id insertado": result.insertId });
         } catch (error) {
